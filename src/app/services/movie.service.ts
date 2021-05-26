@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { Movie } from '../models/Movie';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieService {
-  // Get the Movies-model and create an empty array, and call it movies. Make it private so that it can only be used in this file. 
+  // Get the Movie-model and create an empty array, and call it movies. Make it private so that it can only be used in this file. 
   private movies = new Subject<Movie[]>();
   movies$ = this.movies.asObservable();
 

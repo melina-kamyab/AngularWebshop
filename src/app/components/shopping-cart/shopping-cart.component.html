@@ -1,1 +1,5 @@
-<p>shopping-cart works!</p>
+<div class="movie-container" *ngFor="let c of cartItems">
+    <h3>{{c.name}}</h3>
+    <img [src]="c.imageUrl" alt="Movie poster"/>
+    <p>{{c.price}} Kr</p>
+</div>

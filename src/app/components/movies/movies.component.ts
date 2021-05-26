@@ -9,6 +9,7 @@ import { MovieService } from 'src/app/services/movie.service';
 })
 export class MoviesComponent implements OnInit {
   movies: Movie[] = [];
+  cartItem: Movie[] = [];
 
   // to be able to loop through the list of movies that we recieve from the api 
   // firstly, we need to get it from the service:
@@ -17,16 +18,15 @@ export class MoviesComponent implements OnInit {
   ngOnInit(): void {
     this.service.movies$.subscribe((data) => {
       this.movies = data;
-      // console.log(this.movies);
     })
     this.service.getMovies();
   }
 
   //when a movie is clicked and information is recieved byt the child component, 
   //the following function will notify us that the movie was clicked  
-  handleMovie(movie: Movie): void {
-    console.log("du klickade på: ", movie.name);
-
-    movie.name = movie.name + "clicked"
+  handleMovie(movie: Movie): void {    
+    this.cartItem.push(movie);
+    localStorage.setItem('cartItems', JSON.stringify(this.cartItem));
+    console.log(this.cartItem)
   }
 }
