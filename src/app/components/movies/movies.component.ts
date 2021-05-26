@@ -21,4 +21,12 @@ export class MoviesComponent implements OnInit {
     })
     this.service.getMovies();
   }
+
+  //when a movie is clicked and information is recieved byt the child component, 
+  //the following function will notify us that the movie was clicked  
+  handleMovie(movie: Movie): void {
+    console.log("du klickade på: ", movie.name);
+
+    movie.name = movie.name + "clicked"
+  }
 }

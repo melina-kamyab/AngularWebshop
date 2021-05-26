@@ -1,7 +1,9 @@
 
-<div class="movie-container">
+<div class="movie-container" >
             <h3>{{movie.name}}</h3>
             <img [src]="movie.imageUrl" alt="Movie poster"/>
             <p>{{movie.description}}</p>
+            <p>{{movie.price}} Kr</p>
+            <button type="submit" (click)="handleClick()"> Add Movie to cart</button>
 </div>
 
