@@ -19,9 +19,14 @@ export class CartService {
   //create a function to get cartItems and update the localstorage. Similar steps will 
   //be proceeded as in "movie.service.ts". Open file to see the step-by-step descriptions
   getCartItems(): void {
-
     if(!localStorage.getItem('cartItems')){
-      //redirect to mainpage, or show an error message
+        //get the data from the api and update localstorage
+        this.http
+        .get<Movie[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/products')
+        .subscribe((data) => {
+          this.movies.next(data);
+          localStorage.setItem('cartItems', JSON.stringify(data));
+        })
     } else{
       this.movies.next(JSON.parse(localStorage.getItem('cartItems')));
     }

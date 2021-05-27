@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Movie } from 'src/app/models/Movie';
 
+
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
@@ -9,6 +10,7 @@ import { Movie } from 'src/app/models/Movie';
 export class MovieComponent implements OnInit {
   @Input() movie: Movie;
   @Output() selectedMovie = new EventEmitter <Movie>();
+
 
   constructor() { }
 

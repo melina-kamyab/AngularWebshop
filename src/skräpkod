@@ -1,0 +1,22 @@
+handleCartItems(){
+
+        // //create a holder for when looping through cartItems
+    // let updatedCartObject = {};
+
+    // //check for similar objects and add the prices of the similar objects together
+    // this.cartItems.forEach(function(movie){
+    //   if (updatedCartObject.hasOwnProperty(movie.name)){
+    //     updatedCartObject[movie.name] = updatedCartObject[movie.name] + movie.price;
+    //   }else {
+    //     updatedCartObject[movie.name] = movie.price
+    //   }
+    // })
+
+    // //create a new cart-array and place the objects inside it 
+    // let updatedCart = [];
+    // for(let prop in updatedCartObject){
+    //   updatedCart.push({name:prop, price:updatedCartObject[prop]});
+    // }
+    // console.log(updatedCart);
+    // return updatedCart;
+}

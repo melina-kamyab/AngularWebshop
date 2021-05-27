@@ -27,6 +27,5 @@ export class MoviesComponent implements OnInit {
   handleMovie(movie: Movie): void {    
     this.cartItem.push(movie);
     localStorage.setItem('cartItems', JSON.stringify(this.cartItem));
-    console.log(this.cartItem)
   }
 }

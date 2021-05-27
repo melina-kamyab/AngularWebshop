@@ -1,8 +1,12 @@
 
-<div class="movie-container" *ngFor="let c of updatedCart">
-
-
-    <!-- <h3>{{c.name}}</h3>
+<div class="movie-container" *ngFor="let c of cartItems">
+    <h3>{{c.name}}</h3>
     <img [src]="c.imageUrl" alt="Movie poster"/>
-    <p>{{c.price}} Kr</p> -->
+    <p>{{c.price}} Kr</p>
 </div>
+
+<div>
+    <h3>Total price</h3>
+    <p>{{handleCartItems()}}</p>
+</div>
+
