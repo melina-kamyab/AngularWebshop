@@ -10,6 +10,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
     ShoppingCartComponent,
     NavbarComponent,
     LandingPageComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,

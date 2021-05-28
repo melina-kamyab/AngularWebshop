@@ -1,12 +1,15 @@
-
+<div class="cart-wrapper">
+<div class="movie-wrapper">
 <div class="movie-container" *ngFor="let c of cartItems">
     <h3>{{c.name}}</h3>
     <img [src]="c.imageUrl" alt="Movie poster"/>
-    <p>{{c.price}} Kr</p>
+    <p>{{c.price}} $ </p>
+</div>
 </div>
 
-<div>
+<div class="total">
     <h3>Total price</h3>
-    <p>{{handleCartItems()}}</p>
+    <p>{{handleCartItems()}} $</p>
+    <button type="submit" (click)="handlePayment()" ><a routerLink="/checkout" routerLinkActive="active">Checkout and pay</a></button>
 </div>
-
+</div>

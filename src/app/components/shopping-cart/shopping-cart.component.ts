@@ -29,6 +29,10 @@ export class ShoppingCartComponent implements OnInit {
     }, 0)
     return totalSumInCart
   }
+
+  handlePayment(): void{
+ 
+  }
 }
 
 

@@ -9,6 +9,7 @@ import { Movie } from '../models/Movie';
 })
 export class CartService {
   //Get the Movie-model and create an empty array and call it movies. 
+  cartArray: Movie [] = [];
   private movies = new Subject <Movie[]> ();
   cartItems$ = this.movies.asObservable();
 
