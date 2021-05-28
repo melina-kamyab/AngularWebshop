@@ -1,12 +1,16 @@
-<div class="cart-wrapper">
-<div class="movie-wrapper">
-<div class="movie-container" *ngFor="let c of cartItems">
+<div *ngIf="cartItems.length === 0" class="emptyCart">
+    <h1>Your cart is empty!</h1>
+  </div>
+
+<div class="cart-wrapper" *ngIf="cartItems.length>0">
+<div class="movie-wrapper" >
+<div class="movie-container" *ngFor="let c of cartItems; let i = index">
     <h3>{{c.name}}</h3>
     <img [src]="c.imageUrl" alt="Movie poster"/>
     <p>{{c.price}} $ </p>
+    <button (click)="removeCartItem(i)">Remove</button>
 </div>
 </div>
-
 <div class="total">
     <h3>Total price</h3>
     <p>{{handleCartItems()}} $</p>

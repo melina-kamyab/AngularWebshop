@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { zip } from 'rxjs';
 import { Movie } from 'src/app/models/Movie';
 import { MovieService } from 'src/app/services/movie.service';
 

@@ -21,13 +21,18 @@ export class ShoppingCartComponent implements OnInit {
     this.service.getCartItems();
 
     this.handleCartItems();
-    //console.log(this.handleCartItems());
   }
 
   handleCartItems(){
     let totalSumInCart = this.cartItems.reduce((accumulator, currentValue)=>{ return accumulator + currentValue.price 
     }, 0)
     return totalSumInCart
+  }
+
+  removeCartItem(index:number):void{
+    localStorage.getItem('cartItems');
+    this.cartItems.splice(index, 1);
+    localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
   }
 
   handlePayment(): void{
