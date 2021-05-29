@@ -35,6 +35,7 @@ export class ShoppingCartComponent implements OnInit {
     localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
   }
 
+  // GÖR NÅGOT ÅT DENNA KOLLA ÄVEN HTML FIL
   handlePayment(): void{
  
   }

@@ -21,14 +21,16 @@ export class CartService {
   //be proceeded as in "movie.service.ts". Open file to see the step-by-step descriptions
   getCartItems(): void {
     if(!localStorage.getItem('cartItems')){
-        // //get the data from the api and update localstorage
-        // this.http
-        // .get<Movie[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/products')
-        // .subscribe((data) => {
-        //   this.movies.next(data);
-        //   localStorage.setItem('cartItems', JSON.stringify(data));
-        // })
-        this.movies.next(this.cart)
+        //get the data from the api and update localstorage
+        this.http
+        .get<Movie[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/products')
+        .subscribe((data) => {
+          this.movies.next(data);
+          localStorage.setItem('cartItems', JSON.stringify(data));
+        })
+
+        //TA BORT? FRÅGA MARVIN
+        // this.movies.next(this.cart)
     } else{
       this.movies.next(JSON.parse(localStorage.getItem('cartItems')));
     }

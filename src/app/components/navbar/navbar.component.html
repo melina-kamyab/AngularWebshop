@@ -1,1 +1,17 @@
-<p>navbar works!</p>
+<nav >
+    <div class="menu">
+      <input class="menu-btn" type="checkbox" id="menu-btn" />
+      <label class="menu-icon" for="menu-btn">
+        <div class="hamburger">
+          <div class="segment"></div>
+          <div class="segment"></div>
+          <div class="segment"></div>
+        </div>
+      </label>
+      <ul class="navbar">
+        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions] ="{exact:true}"> Home</a></li>
+        <li><a routerLink="/movies" routerLinkActive="active" >Movies</a></li>
+        <li><a routerLink="/myCart" routerLinkActive="active">Shopping cart</a></li>
+      </ul>
+    </div>
+    </nav>
