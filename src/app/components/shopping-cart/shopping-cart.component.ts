@@ -61,9 +61,6 @@ export class ShoppingCartComponent implements OnInit {
   //   return updatedCart;
   // }
 
-
-  // GÖR NÅGOT ÅT DENNA KOLLA ÄVEN HTML FIL
-  
   //JAG ÄR HÄR NU!!
   
   
