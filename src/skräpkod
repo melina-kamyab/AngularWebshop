@@ -22,11 +22,46 @@ handleCartItems(){
 }
 
 
-<form>
-    <!-- <input type="text" placeholder="Firstname" [formControl]="firstname"> -->
-    <input type="text" placeholder="Lastname">
-    <button type="submit">Confirm payment</button>
-</form>
+  <p>Payment type</p>
+   <label for="mastercard"> Mastercard</label>
+   <input type="checkbox" name="mastercard" >
 
-<p>{{firstname.value}}</p>
+   <label for="visa"> Visa</label>
+   <input type="checkbox" name="visa" >
 
+
+ // orderDetails = new FormGroup({
+  //   firstname: new FormControl(''),
+  //   lastname: new FormControl(''),
+  // });
+------------------------------------------------------
+  // we use the formbuilder method to connects the 
+  // values from our html 
+  orderDetails = this.fb.group({
+    firstname:[''],
+    lastname:[''],
+    totalPrice:[this.handleCartItems()],
+    nicknames: this.fb.array([this.fb.control('')])
+  })
+ 
+    <div formArrayName="nicknames">
+        <h4>Nicknames</h4>
+        <div *ngFor="let n of nicks.controls; let i=index">
+            <label> Nickname</label>
+            <input type="text" [formControlName]="i">
+            <button (click)="addNickname()">Add</button>
+        </div>
+    </div>
+
+
+  //create a help function and force the value inside an array through 
+  //casting
+  get nicks(){
+    return this.orderDetails.get("nicknames") as FormArray;
+    //this.nicks
+  }
+
+  addNickname():void {
+    this.nicks.push(this.fb.control(''));
+  }
+  ------------------------------------------

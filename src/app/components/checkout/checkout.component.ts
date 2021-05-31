@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Movie } from 'src/app/models/Movie';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -11,7 +11,7 @@ import { CartService } from 'src/app/services/cart.service';
 export class CheckoutComponent implements OnInit {
   cartItems: Movie[] = []
 
-  constructor(private service: CartService) { }
+  constructor(private service: CartService, private fb:FormBuilder) { }
 
   ngOnInit(): void {
     //get the cartItems from our service and subscribe on it 
@@ -21,7 +21,7 @@ export class CheckoutComponent implements OnInit {
     this.service.getCartItems();
     console.log(this.cartItems);
 
-    this.handleCartItems()
+    this.handleCartItems();
   }
 
   //function for calculating the total som of all cart items and return the value 
@@ -31,4 +31,19 @@ export class CheckoutComponent implements OnInit {
     return totalSumInCart
   }
 
+  // we use the formbuilder method to connects the 
+  // values from our html 
+  orderDetails = this.fb.group({
+    firstname:[''],
+    lastname:[''],
+    totalPrice:[''],
+  })
+ 
+  //the values given from the formbuilder (see above)
+  // are then acquired and used in the below function 
+  // to be posted to the API
+  onSubmit():void{
+    console.log(this.orderDetails.value)
+    //this.http.post
+  }
 }
