@@ -29,14 +29,14 @@ export class ShoppingCartComponent implements OnInit {
     return totalSumInCart
   }
 
-  //fucntion for removeing a cart item on a click 
+  //function for removing a cart item on a click 
   removeCartItem(index:number):void{
     localStorage.getItem('cartItems');
     this.cartItems.splice(index, 1);
     localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
   }
 
-  //function for handling similar cart items and adding them together
+  // //function for handling similar cart items and adding them together
   // handleSimilarCartItems(){
   //   //create a holder for when looping through cartItems
   //   let updatedCartObject = {};
@@ -57,16 +57,18 @@ export class ShoppingCartComponent implements OnInit {
   //     updatedCart.push({name:prop, price:updatedCartObject[prop]});
   //   }
 
-  //   console.log(updatedCart[0]);
+  //   console.log(updatedCart);
   //   return updatedCart;
   // }
 
 
   // GÖR NÅGOT ÅT DENNA KOLLA ÄVEN HTML FIL
   
+  //JAG ÄR HÄR NU!!
+  
   
   handlePayment(): void{
- 
+    this.handleCartItems();
   }
 }
 

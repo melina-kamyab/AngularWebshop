@@ -1,2 +1,16 @@
 <div class="top-container"></div>
-<p>checkout works</p>
+<div>
+    <h2>Thank you for shopping with us!</h2>
+    <p>Please confirm your payment and fill out the form with you details, so that we can handle your order:</p>
+</div>
+
+<div>
+    <h2>Order details</h2>
+        <div *ngFor="let c of cartItems">
+            <h3>{{c.name}}</h3>
+            <p>{{c.price}} $ </p>
+        </div>
+    <h3>Total price</h3>
+    <p> {{handleCartItems()}} $</p>
+</div>
+

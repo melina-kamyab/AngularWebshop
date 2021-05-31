@@ -22,3 +22,11 @@ handleCartItems(){
 }
 
 
+<form>
+    <!-- <input type="text" placeholder="Firstname" [formControl]="firstname"> -->
+    <input type="text" placeholder="Lastname">
+    <button type="submit">Confirm payment</button>
+</form>
+
+<p>{{firstname.value}}</p>
+

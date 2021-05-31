@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Movie } from 'src/app/models/Movie';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -19,7 +20,15 @@ export class CheckoutComponent implements OnInit {
     })
     this.service.getCartItems();
     console.log(this.cartItems);
+
+    this.handleCartItems()
   }
 
+  //function for calculating the total som of all cart items and return the value 
+  handleCartItems(){
+    let totalSumInCart = this.cartItems.reduce((accumulator, currentValue)=>{ return accumulator + currentValue.price 
+    }, 0)
+    return totalSumInCart
+  }
 
 }
