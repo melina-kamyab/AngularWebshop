@@ -29,7 +29,6 @@ export class MovieService {
         this.movies.next(data);
         localStorage.setItem('movies', JSON.stringify(data));
       })
-
       //otherwise, get cached data from the localstorage and place it in movies:
     } else {
       this.movies.next(JSON.parse(localStorage.getItem('movies')));

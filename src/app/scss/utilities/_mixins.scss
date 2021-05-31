@@ -3,11 +3,17 @@
     border: 1px solid black;
     height: 400px;
     width: 30vw;
+    padding: 1rem;
     
    display: flex;
    flex-direction: column;
    align-items: center;
    justify-content: space-around;
+   text-align: center;
+
+   h3{
+    font-size: 1.5rem;
+   }
 
     img{
         max-width:70%;

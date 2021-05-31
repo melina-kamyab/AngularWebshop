@@ -28,7 +28,7 @@ export class CartService {
     //       localStorage.setItem('cartItems', JSON.stringify(data));
     // } else{
       this.movies.next(JSON.parse(localStorage.getItem('cartItems')));
-      console.log(this.cartItems$)
+      // console.log(this.cartItems$)
     // }
   }
 }

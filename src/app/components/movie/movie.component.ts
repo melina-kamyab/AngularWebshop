@@ -24,6 +24,6 @@ export class MovieComponent implements OnInit {
     //"emit" and send the movie-object as the function called 
     //(to be recieved by a function in the parent component):
     this.selectedMovie.emit(this.movie);
-    console.log(this.movie)
+    //console.log(this.movie)
   }
 }

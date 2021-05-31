@@ -19,8 +19,7 @@ export class ShoppingCartComponent implements OnInit {
       this.cartItems = data;
     })
     this.service.getCartItems();
-    console.log(this.service.getCartItems)
-
+    
     this.handleCartItems();
   }
 
