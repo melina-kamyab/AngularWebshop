@@ -1,6 +1,6 @@
 handleCartItems(){
 
-        // //create a holder for when looping through cartItems
+    // //create a holder for when looping through cartItems
     // let updatedCartObject = {};
 
     // //check for similar objects and add the prices of the similar objects together

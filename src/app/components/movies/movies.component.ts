@@ -34,7 +34,9 @@ export class MoviesComponent implements OnInit {
     } else{
       this.cartItem.push(movie);
       localStorage.setItem('cartItems', JSON.stringify(this.cartItem));
+      //this.handleCartItems();
     }
-
-  }
+  }  
 }
+
+
