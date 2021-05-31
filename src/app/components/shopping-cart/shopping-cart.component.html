@@ -1,6 +1,6 @@
 <div class="top-container"></div>
 <div *ngIf="cartItems.length === 0" class="emptyCart">
-    <h1>Your cart is empty!</h1>
+    <h1>Oopsie, your cart is empty.</h1>
   </div>
 
 <div class="cart-wrapper" *ngIf="cartItems.length>0">
@@ -9,12 +9,12 @@
     <h3>{{c.name}}</h3>
     <img [src]="c.imageUrl" alt="Movie poster"/>
     <p>{{c.price}} $ </p>
-    <button (click)="removeCartItem(i)">Remove</button>
+    <button class="button-small" (click)="removeCartItem(i)">Remove</button>
 </div>
 </div>
 <div class="total">
     <h3>Total price</h3>
     <p>{{handleCartItems()}} $</p>
-    <button type="submit" (click)="handlePayment()" ><a routerLink="/checkout" routerLinkActive="active">Checkout and pay</a></button>
+    <button type="submit" (click)="handlePayment()" class="button-big" ><a routerLink="/checkout" routerLinkActive="active">Checkout and pay</a></button>
 </div>
 </div>

@@ -19,11 +19,13 @@ export class ShoppingCartComponent implements OnInit {
       this.cartItems = data;
     })
     this.service.getCartItems();
+    console.log(this.service.getCartItems)
 
     this.handleCartItems();
   }
 
   handleCartItems(){
+    //calculate the total som of all cart items and return the value 
     let totalSumInCart = this.cartItems.reduce((accumulator, currentValue)=>{ return accumulator + currentValue.price 
     }, 0)
     return totalSumInCart
