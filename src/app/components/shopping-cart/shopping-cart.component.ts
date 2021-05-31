@@ -9,7 +9,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class ShoppingCartComponent implements OnInit {
   cartItems: Movie[] = [];
-  
+  totalSum: number;
   constructor(private service: CartService) { }
 
   ngOnInit(): void {
@@ -23,9 +23,10 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   //function for calculating the total som of all cart items and return the value 
-  handleCartItems(){
+  handleCartItems() :number{
     let totalSumInCart = this.cartItems.reduce((accumulator, currentValue)=>{ return accumulator + currentValue.price 
     }, 0)
+    this.totalSum = totalSumInCart;
     return totalSumInCart
   }
 
@@ -60,16 +61,17 @@ export class ShoppingCartComponent implements OnInit {
   //   console.log(updatedCart);
   //   return updatedCart;
   // }
-
-
-  // GÖR NÅGOT ÅT DENNA KOLLA ÄVEN HTML FIL
   
-  //JAG ÄR HÄR NU!!
-  
-  
-  handlePayment(): void{
+  //frågor till Sebastian : 
+  //vill man ha en länk till sin klick på shoppingcart-sidan som redirectar till checkout eller vill man ha en klickhändelse? Like
+  //so: 
+    handlePayment(): void{
     this.handleCartItems();
   }
+  // jag får ut mitt totala värde för liknande objekt i min cart, men jag lyckas inte interpolera värdet. Varför?
+
+  //borde jag lägga in alla mina funktioner i mian services eller kan jag göra som jag har gjort här? 
+  //Se shoppingcart.ts handleCartItems() och checkout.ts där den kallas på igen...
 }
 
 

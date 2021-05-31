@@ -10,6 +10,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CheckoutComponent implements OnInit {
   cartItems: Movie[] = []
+  totalSum: number;
 
   constructor(private service: CartService) { }
 
@@ -25,9 +26,10 @@ export class CheckoutComponent implements OnInit {
   }
 
   //function for calculating the total som of all cart items and return the value 
-  handleCartItems(){
+  handleCartItems(): number{
     let totalSumInCart = this.cartItems.reduce((accumulator, currentValue)=>{ return accumulator + currentValue.price 
     }, 0)
+    this.totalSum = totalSumInCart;
     return totalSumInCart
   }
 
