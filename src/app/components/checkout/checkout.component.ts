@@ -10,6 +10,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CheckoutComponent implements OnInit {
   cartItems: Movie[] = []
+  totalSum: number;
 
   constructor(private service: CartService, private fb:FormBuilder) { }
 
@@ -18,17 +19,9 @@ export class CheckoutComponent implements OnInit {
     this.service.cartItems$.subscribe((data)=>{
       this.cartItems = data;
     })
-    this.service.getCartItems();
-    console.log(this.cartItems);
 
-    this.handleCartItems();
-  }
-
-  //function for calculating the total som of all cart items and return the value 
-  handleCartItems(){
-    let totalSumInCart = this.cartItems.reduce((accumulator, currentValue)=>{ return accumulator + currentValue.price 
-    }, 0)
-    return totalSumInCart
+     this.service.getCartItems();
+     this.totalSum = this.service.handleCartItems();
   }
 
   // we use the formbuilder method to connects the 

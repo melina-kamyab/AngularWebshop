@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { zip } from 'rxjs';
 import { Movie } from 'src/app/models/Movie';
 import { MovieService } from 'src/app/services/movie.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-movies',
@@ -11,32 +12,27 @@ import { MovieService } from 'src/app/services/movie.service';
 export class MoviesComponent implements OnInit {
   movies: Movie[] = [];
   cartItem: Movie[] = [];
+  selectedMovie: Movie;
 
   // to be able to loop through the list of movies that we recieve from the api 
   // firstly, we need to get it from the service:
-  constructor(private service: MovieService) { }
+  constructor(private movieService: MovieService, private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.service.movies$.subscribe((data) => {
+    this.movieService.movies$.subscribe((data) => {
       this.movies = data;
     })
-    this.service.getMovies();
+    this.movieService.getMovies();
   }
 
   //when a movie is clicked and information is recieved byt the child component, 
   //the following function will notify us that the movie was clicked  
   handleMovie(movie: Movie): void {  
-    if(JSON.parse(localStorage.getItem('cartItems'))){
-      const getCartItems = JSON.parse(localStorage.getItem('cartItems'));
-      console.log(getCartItems);
-      const updatedCart = [...getCartItems, movie];
-      localStorage.setItem('cartItems', JSON.stringify(updatedCart));
-    } else{
-      this.cartItem.push(movie);
-      localStorage.setItem('cartItems', JSON.stringify(this.cartItem));
-      //this.handleCartItems();
+    this.selectedMovie = movie;
+    console.log(this.selectedMovie)
+    this.cartService.addMovieToCart(this.selectedMovie)
     }
-  }  
+    
 }
 
 

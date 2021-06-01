@@ -11,7 +11,7 @@
             <p>{{c.price}} $ </p>
         </div>
     <h3>Total price</h3>
-    <p> {{handleCartItems()}} $</p>
+    <p> {{totalSum}} $</p>
 </div>
 
 <form [formGroup]="orderDetails" (ngSubmit)="onSubmit()">
