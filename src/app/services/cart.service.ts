@@ -26,18 +26,18 @@ export class CartService {
   this.movies.next(JSON.parse(localStorage.getItem('cartItems')));
   }
 
-  // //when a movie is clicked and information is recieved byt the child component, 
-  // //the following function will notify us that the movie was clicked  
-  // handleMovie(movie: Movie): void {  
-  //   if(JSON.parse(localStorage.getItem('cartItems'))){
-  //     const getCartItems = JSON.parse(localStorage.getItem('cartItems'));
-  //     const updatedCart = [...getCartItems, movie];
-  //     localStorage.setItem('cartItems', JSON.stringify(updatedCart));
-  //   } else{
-  //     cartItem.push(movie);
-  //     localStorage.setItem('cartItems', JSON.stringify(cartItem));
-  //   }
-  // } 
+  //when a movie is clicked and information is recieved byt the child component, 
+  //the following function will notify us that the movie was clicked  
+  addMovieToCart(selectedMovie: Movie): void {  
+    if(JSON.parse(localStorage.getItem('cartItems'))){
+      let getCartItems: [] = JSON.parse(localStorage.getItem('cartItems'));
+      let updatedCart = [...getCartItems, selectedMovie];
+      localStorage.setItem('cartItems', JSON.stringify(updatedCart));
+    } else{
+      this.cartItem.push(selectedMovie);
+      localStorage.setItem('cartItems', JSON.stringify(this.cartItem));
+    }
+  } 
   
   //function for calculating the total som of all cart items and return the value 
   handleCartItems(): number {
@@ -49,10 +49,10 @@ export class CartService {
 
   //function for removing a cart item on a click 
   removeCartItem(position:number) {
-    let cartItems = JSON.parse(localStorage.getItem('cartItems'));
-    cartItems.splice(position, 1);
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    this.movies.next(cartItems);
+    let cartItemsFromLS = JSON.parse(localStorage.getItem('cartItems'));
+    cartItemsFromLS.splice(position, 1);
+    localStorage.setItem('cartItems', JSON.stringify(cartItemsFromLS));
+    this.movies.next(cartItemsFromLS);
   }
 
   //function for handling similar cart items and adding them together
