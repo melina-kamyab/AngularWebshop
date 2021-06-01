@@ -15,7 +15,6 @@ export class CartService {
   private totalSum: number; 
   private cartItems: Movie[] = [];
 
-  cartItem: Movie[] = [];
   
   //Once again, import the HTTP-client in order to get the 
   //data from the API
@@ -23,7 +22,11 @@ export class CartService {
 
   //create a function to get cartItems and update the localstorage. 
   getCartItems(): void {
-  this.movies.next(JSON.parse(localStorage.getItem('cartItems')));
+    if(!localStorage.getItem('cartItems')){
+      localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
+    } else{
+      this.movies.next(JSON.parse(localStorage.getItem('cartItems')));
+    }
   }
 
   //when a movie is clicked and information is recieved byt the child component, 
@@ -34,8 +37,8 @@ export class CartService {
       let updatedCart = [...getCartItems, selectedMovie];
       localStorage.setItem('cartItems', JSON.stringify(updatedCart));
     } else{
-      this.cartItem.push(selectedMovie);
-      localStorage.setItem('cartItems', JSON.stringify(this.cartItem));
+      this.cartItems.push(selectedMovie);
+      localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
     }
   } 
   
@@ -53,31 +56,6 @@ export class CartService {
     cartItemsFromLS.splice(position, 1);
     localStorage.setItem('cartItems', JSON.stringify(cartItemsFromLS));
     this.movies.next(cartItemsFromLS);
-  }
-
-  //function for handling similar cart items and adding them together
-  handleSimilarCartItems(){
-    //create a holder for when looping through cartItems
-    let updatedCartObject = {};
-  
-    //check for similar objects and add the prices of the similar objects together
-    this.cartItems.forEach(function(movie){
-      if (updatedCartObject.hasOwnProperty(movie.name)){
-        updatedCartObject[movie.name] = updatedCartObject[movie.name] + movie.price;
-      }else {
-        updatedCartObject[movie.name] = movie.price
-      }
-    })
-  
-    //create a new cart-array and place the objects inside it 
-    let updatedCart = [];
-
-    for(let prop in updatedCartObject){
-      updatedCart.push({name:prop, price:updatedCartObject[prop]});
-    }
-
-    console.log(updatedCart);
-    return updatedCart;
   }
 
 }
