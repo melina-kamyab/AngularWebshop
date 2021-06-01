@@ -25,7 +25,7 @@ export class ShoppingCartComponent implements OnInit {
     removeCartItem(i: number) {
       this.service.removeCartItem(i)
     }
-  
+
 }
 
 

@@ -14,3 +14,12 @@
     <p> {{totalSum}} $</p>
 </div>
 
+<form [formGroup]="orderDetails" (ngSubmit)="onSubmit()">
+    <input type="text" placeholder="Firstname" formControlName="firstname">
+    <input type="text" placeholder="Lastname" formControlName="lastname">
+    <input type="text" formControlName="totalPrice" placeholder="fix so that total price comes here">
+
+    <button type="submit">Confirm payment</button>
+</form>
+
+<p>{{orderDetails.value| json}}</p>
