@@ -30,3 +30,11 @@ handleCartItems(){
 
 <p>{{firstname.value}}</p>
 
+-----------------
+  //function for calculating the total som of all cart items and return the value 
+  handleCartItems(): number{
+    let totalSumInCart = this.cartItems.reduce((accumulator, currentValue)=>{ return accumulator + currentValue.price 
+    }, 0)
+    this.totalSum = totalSumInCart;
+    return totalSumInCart;
+  }

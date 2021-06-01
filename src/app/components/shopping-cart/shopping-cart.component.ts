@@ -9,6 +9,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class ShoppingCartComponent implements OnInit {
   cartItems: Movie[] = [];
+  totalSum: number;
   
   constructor(private service: CartService) { }
 
@@ -18,58 +19,13 @@ export class ShoppingCartComponent implements OnInit {
       this.cartItems = data;
     })
     this.service.getCartItems();
-    this.handleCartItems();
-    //this.handleSimilarCartItems();
+    this.totalSum = this.service.handleCartItems();
   }
 
-  //function for calculating the total som of all cart items and return the value 
-  handleCartItems(){
-    let totalSumInCart = this.cartItems.reduce((accumulator, currentValue)=>{ return accumulator + currentValue.price 
-    }, 0)
-    return totalSumInCart
-  }
-
-  //function for removing a cart item on a click 
-  removeCartItem(index:number):void{
-    localStorage.getItem('cartItems');
-    this.cartItems.splice(index, 1);
-    localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
-  }
-
-  // //function for handling similar cart items and adding them together
-  // handleSimilarCartItems(){
-  //   //create a holder for when looping through cartItems
-  //   let updatedCartObject = {};
+    removeCartItem(i: number) {
+      this.service.removeCartItem(i)
+    }
   
-  //   //check for similar objects and add the prices of the similar objects together
-  //   this.cartItems.forEach(function(movie){
-  //     if (updatedCartObject.hasOwnProperty(movie.name)){
-  //       updatedCartObject[movie.name] = updatedCartObject[movie.name] + movie.price;
-  //     }else {
-  //       updatedCartObject[movie.name] = movie.price
-  //     }
-  //   })
-  
-  //   //create a new cart-array and place the objects inside it 
-  //   let updatedCart = [];
-
-  //   for(let prop in updatedCartObject){
-  //     updatedCart.push({name:prop, price:updatedCartObject[prop]});
-  //   }
-
-  //   console.log(updatedCart);
-  //   return updatedCart;
-  // }
-
-
-  // GÖR NÅGOT ÅT DENNA KOLLA ÄVEN HTML FIL
-  
-  //JAG ÄR HÄR NU!!
-  
-  
-  handlePayment(): void{
-    this.handleCartItems();
-  }
 }
 
 
