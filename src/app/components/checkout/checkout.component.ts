@@ -19,18 +19,9 @@ export class CheckoutComponent implements OnInit {
     this.service.cartItems$.subscribe((data)=>{
       this.cartItems = data;
     })
-    this.service.getCartItems();
-    console.log(this.cartItems);
-
-    this.handleCartItems()
-  }
-
-  //function for calculating the total som of all cart items and return the value 
-  handleCartItems(): number{
-    let totalSumInCart = this.cartItems.reduce((accumulator, currentValue)=>{ return accumulator + currentValue.price 
-    }, 0)
-    this.totalSum = totalSumInCart;
-    return totalSumInCart
+    
+     this.service.getCartItems();
+     this.totalSum = this.service.handleCartItems();
   }
 
 }

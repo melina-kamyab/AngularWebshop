@@ -11,6 +11,7 @@ export class MovieService {
   private movies = new Subject<Movie[]>();
   movies$ = this.movies.asObservable();
 
+
   //In order to be able to get data from an API we need to import a certain module called HttpClient (see above as well as in app.module.ts )
   //and then use that module, and cteate a prperty in its constructor of that type 
   constructor(private http: HttpClient) { }
@@ -18,7 +19,6 @@ export class MovieService {
 
   //function to get movies from API 
   getMovies():void {
-
     //if items from API are not saved in the localstorage, and we are not able to
     //get data, named movies do the following:
     if (!localStorage.getItem('movies')) {
@@ -34,4 +34,5 @@ export class MovieService {
       this.movies.next(JSON.parse(localStorage.getItem('movies')));
     }
   }
+
 }
