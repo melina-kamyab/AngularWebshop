@@ -15,9 +15,7 @@ export class CartService {
   private totalSum: number; 
   private cartItems: Movie[] = [];
 
-  
-  //Once again, import the HTTP-client in order to get the 
-  //data from the API
+  //Once again, import the HTTP-client in order to get the data from the API
   constructor(private http:HttpClient) { }
 
   //create a function to get cartItems and update the localstorage. 

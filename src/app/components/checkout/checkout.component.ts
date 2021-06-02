@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, } from '@angular/forms';
 import { Movie } from 'src/app/models/Movie';
+import { Customer, Order, OrderItems } from 'src/app/models/Order';
 import { CartService } from 'src/app/services/cart.service';
+import { OrderService } from 'src/app/services/order.service';
 
 @Component({
   selector: 'app-checkout',
@@ -10,27 +12,41 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CheckoutComponent implements OnInit {
   cartItems: Movie[] = []
+
+  orders: Order [] = []
+  customer: Customer [] = [];
+  orderItems: OrderItems[] = [];
+
   totalSum: number;
 
-  constructor(private service: CartService, private fb:FormBuilder) { }
+  constructor(private cartService: CartService, private fb:FormBuilder, private orderServive: OrderService) { }
 
   ngOnInit(): void {
-    //get the cartItems from our service and subscribe on it 
-    this.service.cartItems$.subscribe((data)=>{
+    //get the cartItems from our cartService and subscribe on it 
+    this.cartService.cartItems$.subscribe((data)=>{
       this.cartItems = data;
     })
-
-     this.service.getCartItems();
-     this.totalSum = this.service.handleCartItems();
+     this.cartService.getCartItems();
+     this.totalSum = this.cartService.handleCartItems();
+     
+     
+     this.createOrder();
   }
 
   // we use the formbuilder method to connects the 
   // values from our html 
   orderDetails = this.fb.group({
-    firstname:[''],
-    lastname:[''],
-    totalPrice:[''],
+    name:[''],
+    phone:[''],
+    email:[''],
   })
+
+
+  createOrder(){
+   console.log(this.orderDetails)
+  }
+
+
  
   //the values given from the formbuilder (see above)
   // are then acquired and used in the below function 
