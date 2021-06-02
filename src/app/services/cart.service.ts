@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { nextTick } from 'process';
 import { Subject } from 'rxjs';
 import { Movie } from '../models/Movie';
 
@@ -12,7 +11,6 @@ export class CartService {
   private movies = new Subject <Movie[]> ();
   cartItems$ = this.movies.asObservable();
 
-  private totalSum: number; 
   private cartItems: Movie[] = [];
 
   //Once again, import the HTTP-client in order to get the data from the API

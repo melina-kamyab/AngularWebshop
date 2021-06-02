@@ -31,8 +31,9 @@ export class OrderService {
     //loop through the cart items and acquire the id for all cart items.
     // push the id's of each cart item respectively into the empty array, orderRows
     for (let i = 0; i < this.cartItems.length; i++) {
-      let orderId = new OrderItems(this.cartItems[i].id);
-      orderRows.push(orderId);
+      let orderInfo = new OrderItems(this.cartItems[i].id);
+      orderRows.push(orderInfo);
+      console.log(orderRows)
     }
 
     let date = new Date();
@@ -40,9 +41,7 @@ export class OrderService {
     //create an object that will take on the details from the form as well 
     // as from the orderRows-array 
     let newOrder = new Order(date, name, paymentMethod, totalSumInCart, [...orderRows])
-    console.log(newOrder)
     this.orders.next(newOrder);
-
     this.sendOrder(newOrder)
   }
 

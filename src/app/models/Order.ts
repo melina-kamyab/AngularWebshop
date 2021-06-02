@@ -20,6 +20,7 @@ export class Order {
 export class OrderItems {
     id: number;
     productId: number;
+    product: string;
     amount: number;
     orderId: string;
 

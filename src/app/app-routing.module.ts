@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminComponent } from './components/admin/admin.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { MoviesComponent } from './components/movies/movies.component';
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'movies', component: MoviesComponent },
   { path: 'myCart', component: ShoppingCartComponent },
   { path: 'checkout', component: CheckoutComponent },
+  { path: 'admin', component: AdminComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
