@@ -8,7 +8,8 @@ export class Order {
     public status: number;
     public orderRows: OrderItems[];
 
-    constructor(createdBy, paymentMethod, totalPrice, orderRows) {
+    constructor(created, createdBy, paymentMethod, totalPrice, orderRows) {
+        this.created = created;
         this.createdBy = createdBy;
         this.paymentMethod = paymentMethod;
         this.totalPrice = totalPrice;

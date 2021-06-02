@@ -25,19 +25,30 @@ export class OrderService {
       return accumulator + currentValue.price
     }, 0)
 
-    //create an empty array for the orderRows that will later on be posted 
+    //create an empty array for orderRows that will match the object to be posted 
     let orderRows = [];
-    //loopa igenom carten 
-    for (let i = 0; i < this.cartItems.length; i++ ){
+
+    //loop through the cart items and acquire the id for all cart items.
+    // push the id's of each cart item respectively into the empty array, orderRows
+    for (let i = 0; i < this.cartItems.length; i++) {
       let orderId = new OrderItems(this.cartItems[i].id);
       orderRows.push(orderId);
     }
 
-     let newOrder = new Order(name, "", totalSumInCart, [...orderRows])
-   
-     this.orders.next(newOrder)
-     //return this.http.post<Order>('https://medieinstitutet-wie-products.azurewebsites.net/api/orders', this.customerOrder);
-    //customerOrder: Order = new Order("customerName", "visa", 150, []);
+    let date = new Date();
+
+    //create an object that will take on the details from the form as well 
+    // as from the orderRows-array 
+    let newOrder = new Order(date, name, paymentMethod, totalSumInCart, [...orderRows])
+    console.log(newOrder)
+    this.orders.next(newOrder);
+
+    this.sendOrder(newOrder)
+  }
+
+  sendOrder(newOrder: Order) {
+    return this.http.post<Order>('https://medieinstitutet-wie-products.azurewebsites.net/api/orders', newOrder)
+      .subscribe((data: Order) => { console.log(data) })
   }
 }
 
