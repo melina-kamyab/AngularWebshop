@@ -1,31 +1,30 @@
 export class Order {
     public id: number;
-    public companyId: number = 23456; 
+    public companyId: number = 23456; //Just a random number that will represent the number of our company-id
     public created: Date;
     public createdBy: string;
     public paymentMethod: string;
     public totalPrice: number;
     public status: number;
-    public orderRows:OrderItems[];
+    public orderRows: OrderItems[];
 
-    constructor(id, createdBy, paymentMethod, totalPrice, orderRows) { 
-        this.id = id;
+    constructor(createdBy, paymentMethod, totalPrice, orderRows) {
         this.createdBy = createdBy;
         this.paymentMethod = paymentMethod;
         this.totalPrice = totalPrice;
-        this.orderRows= orderRows; 
+        this.orderRows = orderRows;
     }
 }
 
-export class OrderItems{
+export class OrderItems {
     id: number;
-    productId:number;
-    amount:number;
-    orderId:string;
+    productId: number;
+    amount: number;
+    orderId: string;
+
+    constructor(productId) {
+        this.productId = productId;
+    }
 }
 
-export class Customer{
-    name:string;
-    telephoneNumber: number;
-    email: string;
-}
+

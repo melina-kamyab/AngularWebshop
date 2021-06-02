@@ -14,12 +14,15 @@
     <p> {{totalSum}} $</p>
 </div>
 
-<form [formGroup]="orderDetails" (ngSubmit)="onSubmit()">
+<form [formGroup]="customerForm" (ngSubmit)="handleFormSubmit()">
     <input type="text" placeholder="Firstname" formControlName="name">
     <input type="text" placeholder="Phone number" formControlName="phone">
     <input type="text" placeholder="Email" formControlName="email" >
+    <select name="dropdown" formControlName="paymentMethod">
+        <option>Visa</option>
+        <option>MasterCard</option>
+        <option>American Express</option>
+    </select>
 
-    <button type="submit">Confirm payment</button>
+    <button type="submit" [disabled] = "customerForm.invalid">Confirm payment</button>
 </form>
-
-<p>{{orderDetails.value| json}}</p>
