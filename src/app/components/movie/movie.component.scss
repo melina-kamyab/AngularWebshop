@@ -1,15 +1,35 @@
 @import"../../../styles.scss";
 
+.movie-wrapper{
+    @include moviesWrapper;
+    @include flexCenter ($direction:row);
+}
+
 .movie-container{
     @include movieContainer;
-   h3{
-    font-size: 2rem;
-   }
 
+   h3{
+        font-size: $fs-body;
+        @include desktopsOnly{
+        font-size: $fs-title;
+    }    
+   }
     img{
         max-width:80%;
         max-height: 80%;
         display: block;
+        margin: 1.5rem 0 1.5rem 0;
     }
+    p{
+        font-size: $fs-body;
+        @include desktopsOnly{
+        font-size: $fs-subtitle;
+        }   
+    }
+    .price{
+        font-weight: $fw-bold;
+        padding: 2rem;
+        color: #eb790fd2;
+    } 
 }
 

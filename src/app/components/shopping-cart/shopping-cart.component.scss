@@ -6,19 +6,18 @@
 }
 
 .movie-wrapper{
+    @include moviesWrapper;
     @include flexCenter ($direction:row);
-    flex-wrap: wrap;
-    width: 90vw;
-    padding-bottom: 5rem; 
 }
 
 .movie-container{
-    @include movieContainer;
+@include movieContainer;
+
    h3{
-    font-size: $fs-bread;
-            @include desktopsOnly{
-            font-size: $fs-title;
-        }    
+        font-size: $fs-body;
+        @include desktopsOnly{
+        font-size: $fs-title;
+    }    
    }
     img{
         max-width:80%;
@@ -32,6 +31,8 @@
             font-size: $fs-subtitle;
         }      
     }
+
+
 }
 
 .total{
@@ -40,11 +41,17 @@
     align-items: center;
     height: 30vh;
     color:$white;
+
     h3{
         font-size: $fs-title;
     }
     p{
         font-size: $fs-title;
+        margin: 2rem;
+    }
+
+    button{
+        margin-bottom: 4rem;
     }
 }
 

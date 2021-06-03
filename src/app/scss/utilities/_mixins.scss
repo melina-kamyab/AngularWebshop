@@ -1,19 +1,12 @@
 
-@media only screen and (max-width: 600px) {
-.top-container{
-    height: 10vh;
-}
-}
-
 @mixin moviesWrapper{
  @include flex-row-wrap;
     justify-content: space-around;
     align-items: center;
-
 }
    
 @mixin movieContainer{
-    width: 30vw;
+    width: 80vw;
     padding: 1rem;
     margin-top: 3rem;
     
@@ -24,6 +17,10 @@
    text-align: center;
 
    color: $white;
+    @include desktopsOnly{
+     width: 30vw;
+    }
+    
 
 }
 
@@ -41,7 +38,7 @@
 }
 
 @mixin desktopsOnly {
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 700px) {
         @content;
     }
 }

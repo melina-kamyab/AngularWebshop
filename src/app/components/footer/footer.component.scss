@@ -1,68 +1,46 @@
 @import"../../../styles.scss";
+
 .footer-container{
     padding-top:130px;
 
+    @include desktopsOnly{
+        padding-top:130px;
+    }
+
     .footer{
-    display: flex;
-    flex-direction: column;
+    @include flexCenter ($direction: column);
     position: absolute;
-    justify-content: space-around;
-    align-items: center;
     bottom: 0;
     background-color: #5c5b5be8;
     color: black;
     width: 100vw;
     padding: 1rem 0 1rem 0;
     font-size: 1rem;
-    
-    
+
+    @include desktopsOnly{
+        padding: 1rem 0 1rem 0;
+        font-size: 1.5rem;
+    }   
+
     li{
-        width: 40%;
+        width: 50%;
         display: flex;
         justify-content: space-between;
         list-style: none;
+        padding: .5rem 0 0.5rem 0;
+        color: $white;
     }
     
     i{
       font-size: 1rem;
-      color: #eb790fd2;
-    }
-    }
-}
-
-
-@media screen and (min-width: 600px) {
-   .footer-container{
-    padding-top:130px;
-
-    .footer{
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        justify-content: space-around;
-        align-items: center;
-        bottom: 0;
-        background-color: #5c5b5be8;
-        color: black;
-        width: 100vw;
-        padding: 1rem 0 1rem 0;
-        height: 15vh;
-        font-size: 1.5rem;
-
-        li{
-            width: 50%;
-            display: flex;
-            justify-content: space-between;
-            list-style: none;
+      color: $signature;
+      margin-right: 2rem;
+    
+        @include desktopsOnly{
+        font-size: 2rem;
         }
-
-        i{
-            font-size: 2rem;
-            color: #eb790fd2;
-          }
     }
-   }
-
-   
-
+    }
 }
+
+
