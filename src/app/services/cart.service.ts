@@ -54,4 +54,5 @@ export class CartService {
     this.movies.next(cartItemsFromLS);
   }
 
+
 }

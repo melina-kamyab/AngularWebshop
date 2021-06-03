@@ -1,4 +1,4 @@
-@media only screen and (max-width: 600px) {
+@import"../../../styles.scss";
 .footer-container{
     padding-top:130px;
 
@@ -12,7 +12,7 @@
     background-color: #5c5b5be8;
     color: black;
     width: 100vw;
-    height: 15vh;
+    padding: 1rem 0 1rem 0;
     font-size: 1rem;
     
     
@@ -31,14 +31,10 @@
 }
 
 
-}
-
 @media screen and (min-width: 600px) {
    .footer-container{
     padding-top:130px;
-   }
 
-   
     .footer{
         display: flex;
         flex-direction: column;
@@ -49,6 +45,7 @@
         background-color: #5c5b5be8;
         color: black;
         width: 100vw;
+        padding: 1rem 0 1rem 0;
         height: 15vh;
         font-size: 1.5rem;
 
@@ -64,4 +61,8 @@
             color: #eb790fd2;
           }
     }
+   }
+
+   
+
 }

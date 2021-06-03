@@ -27,12 +27,11 @@ export class MoviesComponent implements OnInit {
 
   //when a movie is clicked and information is recieved byt the child component, 
   //the following function will notify us that the movie was clicked  
-  handleMovie(movie: Movie): void {  
+  handleMovie(movie: Movie): void {
     this.selectedMovie = movie;
-    console.log(this.selectedMovie)
     this.cartService.addMovieToCart(this.selectedMovie)
-    }
-    
+  }
+
 }
 
 

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Movie } from '../models/Movie';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Order, OrderItems } from '../models/Order';
 
 @Injectable({
@@ -16,7 +16,7 @@ export class OrderService {
 
   constructor(private http: HttpClient) { }
 
-  createOrder(name: string, paymentMethod: string): void {
+  createOrder(name: string, paymentMethod: string): Observable <Order> {
     //get cart items from local storage 
     this.cartItems = JSON.parse(localStorage.getItem('cartItems'));
 
@@ -32,6 +32,7 @@ export class OrderService {
     // push the id's of each cart item respectively into the empty array, orderRows
     for (let i = 0; i < this.cartItems.length; i++) {
       let orderInfo = new OrderItems(this.cartItems[i].id);
+      orderInfo.amount = 1;
       orderRows.push(orderInfo);
       console.log(orderRows)
     }
@@ -41,13 +42,17 @@ export class OrderService {
     //create an object that will take on the details from the form as well 
     // as from the orderRows-array 
     let newOrder = new Order(date, name, paymentMethod, totalSumInCart, [...orderRows])
-    this.orders.next(newOrder);
-    this.sendOrder(newOrder)
+    
+    // this.orders.next(newOrder);
+    return this.sendOrder(newOrder);
   }
 
   sendOrder(newOrder: Order) {
-    return this.http.post<Order>('https://medieinstitutet-wie-products.azurewebsites.net/api/orders', newOrder)
-      .subscribe((data: Order) => { console.log(data) })
+    return this.http.post<Order>('https://medieinstitutet-wie-products.azurewebsites.net/api/orders', newOrder);
+  }
+
+  clearCart(): void {
+    localStorage.removeItem('cartItems');
   }
 }
 

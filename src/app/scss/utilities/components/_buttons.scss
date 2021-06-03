@@ -1,0 +1,46 @@
+.button-big{
+    border: none;
+    a{
+        border-radius: .5rem;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #eb790fd2;
+        background-color: black;
+        letter-spacing: 1.5px;
+
+        &:visited{
+            color: #eb790fd2;          
+        }
+
+        &:hover{
+            transition: 0.3s ease;
+            background-color: rgba(88, 85, 85, 0.795);
+            color: white;
+        }
+    }
+}
+
+
+.button-small{
+        border: none;
+        border-radius: .3rem;
+        padding: 5px 10px;
+        text-decoration: none;
+        letter-spacing: 1.5px;
+        font-size: 1.2rem;
+        background-color: rgba(88, 85, 85, 0.795);
+        color: white;
+
+        &:hover{
+            transition: 0.3s ease;
+            color: #eb790fd2;
+            background-color: black;
+            font-weight: bold;
+        }
+
+        a:visited{
+            color: white;
+            text-decoration: none;
+        }
+
+}

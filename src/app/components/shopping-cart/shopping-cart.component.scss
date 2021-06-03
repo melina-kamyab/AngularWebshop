@@ -1,13 +1,50 @@
+@import"../../../styles.scss";
+
 .cart-wrapper{
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
+    @include flexCenter ($direction:column);
+    justify-content: space-evenly;
+}
+
+.movie-wrapper{
+    @include flexCenter ($direction:row);
+    flex-wrap: wrap;
+    width: 90vw;
+    padding-bottom: 5rem; 
+}
+
+.movie-container{
+    @include movieContainer;
+   h3{
+    font-size: $fs-bread;
+            @include desktopsOnly{
+            font-size: $fs-title;
+        }    
+   }
+    img{
+        max-width:80%;
+        max-height: 80%;
+        display: block;
+        margin: 1.5rem 0 1.5rem 0;
+    }
+    p{
+        font-size: $fs-body;
+        @include desktopsOnly{
+            font-size: $fs-subtitle;
+        }      
+    }
 }
 
 .total{
-    display: flex;
-    flex-direction: column;
+    @include flexCenter ($direction:column);
     justify-content: space-around;
-    align-items: flex-end;
-    height: 20vh;
+    align-items: center;
+    height: 30vh;
+    color:$white;
+    h3{
+        font-size: $fs-title;
+    }
+    p{
+        font-size: $fs-title;
+    }
 }
+

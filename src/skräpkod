@@ -99,3 +99,14 @@ handleCartItems(){
     console.log(updatedCart);
     return updatedCart;
   }
+
+
+
+  ------
+  TODO: 
+
+  - skriv README 
+  - ordna så att jag använder mig av variabler 
+  - summera antalet och rendera endast ut en av varje dublett i shoppingcarten 
+  - skriv najsare innehåll 
+  - strukturera scss

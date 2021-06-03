@@ -1,0 +1,15 @@
+@import"../../../styles.scss";
+
+.movie-container{
+    @include movieContainer;
+   h3{
+    font-size: 2rem;
+   }
+
+    img{
+        max-width:80%;
+        max-height: 80%;
+        display: block;
+    }
+}
+

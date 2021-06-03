@@ -1,8 +1,19 @@
 
-.movie-container{
-    border: 1px solid black;
-    height: 400px;
-    max-width: 30vw;
+@media only screen and (max-width: 600px) {
+.top-container{
+    height: 10vh;
+}
+}
+
+@mixin moviesWrapper{
+ @include flex-row-wrap;
+    justify-content: space-around;
+    align-items: center;
+
+}
+   
+@mixin movieContainer{
+    width: 30vw;
     padding: 1rem;
     margin-top: 3rem;
     
@@ -12,60 +23,25 @@
    justify-content: space-around;
    text-align: center;
 
-   h3{
-    font-size: 1.5rem;
-   }
+   color: $white;
 
-    img{
-        max-width:70%;
-        max-height: 70%;
-        display: block;
+}
+
+@mixin flexCenter($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+@mixin flex-row-wrap{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+@mixin desktopsOnly {
+    @media screen and (min-width: 1024px) {
+        @content;
     }
-}
-
-.button-big{
-    border: none;
-    a{
-        border-radius: .5rem;
-        padding: 10px 15px;
-        text-decoration: none;
-        color: #eb790fd2;
-        background-color: black;
-        letter-spacing: 1.5px;
-
-        &:visited{
-            color: #eb790fd2;          
-        }
-
-        &:hover{
-            transition: 0.3s ease;
-            background-color: rgba(88, 85, 85, 0.795);
-            color: white;
-        }
-    }
-}
-
-
-.button-small{
-        border: none;
-        border-radius: .3rem;
-        padding: 5px 10px;
-        text-decoration: none;
-        letter-spacing: 1.5px;
-        font-size: 1.2rem;
-        background-color: rgba(88, 85, 85, 0.795);
-        color: white;
-
-        &:hover{
-            transition: 0.3s ease;
-            color: #eb790fd2;
-            background-color: black;
-            font-weight: bold;
-        }
-
-}
-@media only screen and (max-width: 600px) {
-.top-container{
-    height: 10vh;
-}
 }
