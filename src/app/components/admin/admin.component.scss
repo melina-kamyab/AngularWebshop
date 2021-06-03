@@ -1,8 +1,10 @@
 @import"../../../styles.scss";
 
+.order-container{
+    @include flexCenter($direction: row);
+    flex-wrap: wrap;
+}
 .orders{
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    color: white;
+    margin: 2rem; 
 }

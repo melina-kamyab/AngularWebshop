@@ -55,3 +55,12 @@
     }
 }
 
+.emptyCart{
+    text-align: center;
+    color: white;
+    font-size: $fs-subtitle;
+    height: 100vh;
+    @include desktopsOnly{
+        font-size: $fs-heading;
+    }   
+}

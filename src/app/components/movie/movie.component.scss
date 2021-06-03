@@ -21,15 +21,21 @@
         margin: 1.5rem 0 1.5rem 0;
     }
     p{
-        font-size: $fs-body;
+        font-size: $fs-bread;
         @include desktopsOnly{
-        font-size: $fs-subtitle;
+        font-size: $fs-bread;
         }   
     }
     .price{
         font-weight: $fw-bold;
         padding: 2rem;
-        color: #eb790fd2;
+        color: $signature;
+        text-decoration: underline;
+        letter-spacing: 2px;
+
+        @include desktopsOnly{
+        font-size: $fs-subtitle;
+        }    
     } 
 }
 

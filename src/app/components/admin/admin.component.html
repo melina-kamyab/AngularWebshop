@@ -1,19 +1,19 @@
+
+<div class="order-container">
 <div *ngFor="let o of customerOrders" class="orders">
     <h4>Order Id</h4>
     <p>{{o.id}}</p>
-
-    <h4>Order Created</h4>
-    <p>{{o.created}}</p>
-    
     <h4>By:</h4>
     <p>{{o.createdBy}}</p>
 
-    <h4>Item specification</h4>
+
+    <h4>Items</h4>
     <div *ngFor="let r of o.orderRows"> 
         <p> {{r.productId}}</p>
     </div>
-    <h4>Number of Items {{o.orderRows.length}}</h4>
 
+    <h4>Number of Items: {{o.orderRows.length}}</h4>
     <h4>Total price</h4>
     <p>{{o.totalPrice}}</p>
+</div>
 </div>

@@ -1,1 +1,13 @@
 @import"../../../styles.scss";
+
+div{
+    text-align: center;
+    color: white;
+    font-size: $fs-subtitle;
+    height: 40vh;
+    margin: 3rem;
+    @include desktopsOnly{
+        font-size: $fs-title;
+        margin: 5rem; 
+    }   
+}

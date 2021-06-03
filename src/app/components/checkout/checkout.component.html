@@ -4,23 +4,24 @@
     <h2>Thank you for shopping with us!</h2>
     <p>Please confirm your payment and fill out the form with you details, so that we can handle your order:</p>
 </div>
-
-<div class="order-details">
     <h2>Order details</h2>
-        <div *ngFor="let c of cartItems">
+<div class="order-details">
+        <ul *ngFor="let c of cartItems">
+        <li>
             <h4>{{c.name}}</h4>
             <p>{{c.price}} $ </p>
-        </div>
+
+        </li>
+        </ul>
+</div>
     <h3>Total price</h3>
     <p> {{totalSum}} $</p>
-</div>
-
 <form [formGroup]="customerForm" (ngSubmit)="handleFormSubmit()" class="customer-form">
     <input type="text" placeholder="Firstname" formControlName="name">
     <input type="text" placeholder="Phone number" formControlName="phone">
     <input type="text" placeholder="Email" formControlName="email" >
     <select name="dropdown" formControlName="paymentMethod">
-        <option value="paymentMethod" selected>Payment method*</option>
+        <option value="" selected >Payment method*</option>
         <option value="Visa">Visa</option>
         <option value="MasterCard">MasterCard</option>
         <option value="AmericanExpress">American Express</option>
