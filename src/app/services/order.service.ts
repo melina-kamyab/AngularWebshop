@@ -16,6 +16,7 @@ export class OrderService {
 
   constructor(private http: HttpClient) { }
 
+  //function for handling the post of teh order 
   createOrder(name: string, paymentMethod: string): Observable <Order> {
     //get cart items from local storage 
     this.cartItems = JSON.parse(localStorage.getItem('cartItems'));
@@ -25,10 +26,10 @@ export class OrderService {
       return accumulator + currentValue.price
     }, 0)
 
-    //create an empty array for orderRows that will match the object to be posted 
+    //create an empty array that will later on be matched with the the obejct of the API 
     let orderRows = [];
 
-    //loop through the cart items and acquire the id for all cart items.
+    //loop through the cart items and acquire the id for each cart item.
     // push the id's of each cart item respectively into the empty array, orderRows
     for (let i = 0; i < this.cartItems.length; i++) {
       let orderInfo = new OrderItems(this.cartItems[i].id);
@@ -37,20 +38,22 @@ export class OrderService {
       console.log(orderRows)
     }
 
+    //another variable for our post that will show us the current date of the order 
     let date = new Date();
 
     //create an object that will take on the details from the form as well 
     // as from the orderRows-array 
     let newOrder = new Order(date, name, paymentMethod, totalSumInCart, [...orderRows])
-    
-    // this.orders.next(newOrder);
+
     return this.sendOrder(newOrder);
   }
 
+  //separate function to do the actual post of the order 
   sendOrder(newOrder: Order) {
     return this.http.post<Order>('https://medieinstitutet-wie-products.azurewebsites.net/api/orders', newOrder);
   }
 
+  //function for emptying the local storage of cart items
   clearCart(): void {
     localStorage.removeItem('cartItems');
   }

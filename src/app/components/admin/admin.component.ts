@@ -18,8 +18,5 @@ export class AdminComponent implements OnInit {
       this.customerOrders = data;
     })
     this.adminService.getOrders()
-
-    console.log(this.customerOrders)
   }
-
 }

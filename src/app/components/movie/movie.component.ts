@@ -10,8 +10,7 @@ import { Movie } from 'src/app/models/Movie';
 export class MovieComponent implements OnInit {
   @Input() movie: Movie;
   @Output() selectedMovie = new EventEmitter <Movie>();
-
-
+  
   constructor() { }
 
   ngOnInit(): void {

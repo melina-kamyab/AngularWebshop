@@ -10,6 +10,7 @@
 
     .brand-name{
         padding: 2rem;
+       color: $signature;
     }
     .icons{
             @include flexCenter($direction: row);
